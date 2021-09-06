@@ -9,6 +9,7 @@ export const navbar = () => {
 			<NavLink to="/profile-page">Profile</NavLink>
 			{/* if we are logged in, make this next link a logout button */}
 			<NavLink to="/login">Login</NavLink>
+			<NavLink to="/logout">Logout</NavLink>
 		</div>
 	);
 };

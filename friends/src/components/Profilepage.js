@@ -1,15 +1,16 @@
 import Friend from "./Friend";
 
-export const profilePage = () => {
-	const friend = {
-		id: "1234",
-		name: "Johnny",
-		age: 22,
-		email: "me@me.me",
-	};
+export const Profilepage = () => {
+	// const friend = {
+	// 	id: "1234",
+	// 	name: "Johnny",
+	// 	age: 22,
+	// 	email: "me@me.me",
+	// };
+
 	return (
 		<div>
-			<Friend></Friend>
+			<Friend />
 			{/* {Friend.map((friends) => {
 				return <Friend key={friends.id} details={friends} />;
 			})} */}
@@ -17,4 +18,4 @@ export const profilePage = () => {
 	);
 };
 
-export default profilePage;
+export default Profilepage;

@@ -1,14 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { axiosWithAuth } from "../api/axios-with-auth";
 const initialFormValues = {
 	username: "",
 	password: "",
 };
 
-export const Login = () => {
+export const Login = (props) => {
 	const [state, setState] = useState(initialFormValues);
-	const [isLoggin, setIsLogging] = useState(false);
+	const [isLogging, setIsLogging] = useState(false);
 
 	const onChangeHandler = (e) => {
 		setState({ ...state, [e.target.name]: e.target.value });
@@ -23,7 +22,9 @@ export const Login = () => {
 			.post("http://localhost:46000/api/login", login)
 			.then((res) => {
 				console.log(res);
-				// localStorage.setItem('token', res.data.token);
+				localStorage.setItem("token", res.data.payload);
+				console.log(localStorage.getItem("token"));
+				props.history.push("/profile-page");
 			})
 			.catch((err) => console.log("login error", err))
 			.finally(() => {
@@ -31,8 +32,9 @@ export const Login = () => {
 				setIsLogging(false);
 			});
 	};
-
-	return (
+	return isLogging === true ? (
+		<div>Loading</div>
+	) : (
 		<div>
 			login component
 			<form onSubmit={onSubmitHandler}>

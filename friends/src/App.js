@@ -34,12 +34,11 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			<Route exact path="/friend-form" render={() => <FriendForm />} />
-			<Route exact path="/profile-page" render={() => <Profilepage />} />
-			<Route exact path="/login" render={() => <Login />} />
-			<PrivateRoute exact path="/protected" component={Profilepage}>
-				<Profilepage friends={FriendForm.friends} />
-			</PrivateRoute>
+			<PrivateRoute exact path="/friend-form" component={FriendForm} />
+
+			<PrivateRoute exact path="/profile-page" component={Profilepage} />
+
+			<Route exact path="/login" component={Login} />
 		</div>
 	);
 }

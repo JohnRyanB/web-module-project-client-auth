@@ -33,16 +33,21 @@ const FriendForm = () => {
 			},
 		]);
 		const newFriend = {
-			id: uuidv4(),
-			name: friendData.name,
-			age: friendData.name,
-			email: friendData.email,
+			id: "1231233432",
+			name: "John",
+			age: 22,
+			email: "John@John.John",
+			// // id: uuidv4(),
+			// name: friendData.name,
+			// age: friendData.age,
+			// email: friendData.email,
 		};
 		console.log(newFriend);
 		axios
-			.put("http://localhost:46000/api/friends", newFriend)
+			.post("http://localhost:46000/api/friends", newFriend)
 			.then((res) => {
-				setFriends(res.data, ...friends);
+				console.log(res);
+				// setFriends(res.data, ...friends);
 			})
 			.catch((err) => {
 				console.log("error during post", err);
