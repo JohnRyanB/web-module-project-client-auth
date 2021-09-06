@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { axiosWithAuth } from "../api/axios-with-auth";
 const initialFormValues = {
 	username: "",
 	password: "",
@@ -17,10 +18,12 @@ export const Login = () => {
 		setIsLogging(true);
 		e.preventDefault();
 		const login = { ...state };
+		console.log("my login", login);
 		axios
-			.post("http://localhost:5000/api/login", login)
+			.post("http://localhost:46000/api/login", login)
 			.then((res) => {
 				console.log(res);
+				// localStorage.setItem('token', res.data.token);
 			})
 			.catch((err) => console.log("login error", err))
 			.finally(() => {

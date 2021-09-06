@@ -40,7 +40,7 @@ const FriendForm = () => {
 		};
 		console.log(newFriend);
 		axios
-			.put("http://localhost:5000/api/friends", newFriend)
+			.put("http://localhost:46000/api/friends", newFriend)
 			.then((res) => {
 				setFriends(res.data, ...friends);
 			})
