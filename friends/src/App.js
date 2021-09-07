@@ -8,7 +8,8 @@ import PrivateRoute from "./components/Privateroute";
 
 function App() {
 	const Logout = () => {
-		return <Redirect to="/login">{localStorage.removeItem("token")}</Redirect>;
+		localStorage.removeItem("token");
+		return <Redirect to="/login"></Redirect>;
 	};
 
 	return (
