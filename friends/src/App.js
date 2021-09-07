@@ -21,7 +21,7 @@ function App() {
 			<PrivateRoute exact path="/profile-page" component={Profilepage} />
 
 			<Route exact path="/login" component={Login} />
-			<Route exact path="/" onClick={Logout()} />
+			<Route exact path="/" onClick={() => Logout()} />
 		</div>
 	);
 }

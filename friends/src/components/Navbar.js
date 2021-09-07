@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 export const navbar = () => {
+	const Logout = () => {
+		localStorage.removeItem("token");
+		return <Redirect to="/login"></Redirect>;
+	};
 	return (
 		<div className="App-header">
 			<NavLink className="App-link" to="/">
@@ -17,7 +21,7 @@ export const navbar = () => {
 			<NavLink className="App-link" to="/login">
 				Login
 			</NavLink>
-			<NavLink className="App-link" to="/">
+			<NavLink className="App-link" to="/" onClick={() => Logout()}>
 				Logout
 			</NavLink>
 		</div>
