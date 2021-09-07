@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { axiosWithAuth } from "../api/axios-with-auth";
 
 const initialFormValue = {
 	id: "",
@@ -33,18 +34,14 @@ const FriendForm = () => {
 			},
 		]);
 		const newFriend = {
-			id: "1231233432",
-			name: "John",
-			age: 22,
-			email: "John@John.John",
-			// // id: uuidv4(),
-			// name: friendData.name,
-			// age: friendData.age,
-			// email: friendData.email,
+			// id: uuidv4(),
+			name: friendData.name,
+			age: friendData.age,
+			email: friendData.email,
 		};
 		console.log(newFriend);
-		axios
-			.post("http://localhost:46000/api/friends", newFriend)
+		axiosWithAuth()
+			.post("/friends", newFriend)
 			.then((res) => {
 				console.log(res);
 				// setFriends(res.data, ...friends);
