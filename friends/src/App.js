@@ -1,17 +1,12 @@
 import "./App.css";
 import FriendForm from "./components/Friendform";
 import Navbar from "./components/Navbar";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import Profilepage from "./components/Profilepage";
 import PrivateRoute from "./components/Privateroute";
 
 function App() {
-	const Logout = () => {
-		localStorage.removeItem("token");
-		return <Redirect to="/login"></Redirect>;
-	};
-
 	return (
 		<div className="App">
 			<Navbar />
@@ -21,7 +16,6 @@ function App() {
 			<PrivateRoute exact path="/profile-page" component={Profilepage} />
 
 			<Route exact path="/login" component={Login} />
-			<Route exact path="/" onClick={() => Logout()} />
 		</div>
 	);
 }
